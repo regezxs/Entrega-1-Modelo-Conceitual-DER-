@@ -5,7 +5,7 @@
 
 ## Metadados
 
-- **Nomes dos alunos e RGM:** [Nome do Aluno 1 - RGM] | [Nome do Aluno 2 - RGM]
+- **Nomes dos alunos e RGM:** Letícia Valentim Reges - 047369680| [Nome do Aluno 2 - RGM]
 
 ---
 
