@@ -10,7 +10,7 @@
 
 > 🎓 **Integrantes do Grupo**
 > - **Letícia Valentim Reges** — RGM: `047369680`
-> - **[Nome do Aluno 2]** — RGM: `[RGM do Aluno 2]`
+> - **Juan Arthur Franco** — RGM: `47232099`
 
 ---
 
@@ -60,6 +60,42 @@
 * **Integridade:** Consistência nos dados, evitando inconsistências e duplicidades.
 
 ---
+## 📜 4. Regras de Negócio
+
+### 📋 Regras Operacionais
+* **RN01:** Todo equipamento deve obrigatoriamente ter cadastro no sistema.
+* **RN02:** Todo equipamento deve estar associado a um consultório ou localização física.
+* **RN03:** Toda manutenção executada deve ser vinculada ao histórico do equipamento.
+* **RN04:** Equipamentos com status `"Em Manutenção"` ficam bloqueados para uso.
+* **RN05:** Toda saída de peças/materiais do estoque exige registro imediato.
+* **RN06:** Qualquer lote de produção deve gerar uma ordem correspondente no sistema.
+
+### 💡 Restrições Organizacionais
+> A atualização rigorosa do sistema previne o uso de equipamentos defeituosos, reduzindo paralisações nos atendimentos. O histórico centralizado permite acompanhar a vida útil dos aparelhos, planejar substituições preventivas e controlar custos operacionais.
+
+---
+
+## 📚 5. Dicionário de Dados Conceitual (Preliminar)
+
+### 🩺 Mapeamento do Parque Tecnológico (Equipamentos)
+
+| Aparelho / Equipamento | Descrição | Regra de Negócio Associada |
+| :--- | :--- | :--- |
+| **Cadeira Odontológica** | Acomodação do paciente durante o atendimento. | Vinculada a um consultório. Manutenções registradas. |
+| **Scanner Intraoral** | Captura digital da arcada dentária para modelos 3D. | Restrito a profissionais autorizados. |
+| **Scanner de Bancada** | Digitalização de modelos físicos para projetos CAD. | Registro e manutenção controlados no sistema. |
+| **Impressora 3D Odontológica** | Fabricação de modelos, guias e placas digitais. | Controle rigoroso de manutenção e insumos. |
+| **Fresadora CAD/CAM** | Usinagem de peças a partir de projetos digitais. | Operação permitida apenas no status "Disponível". |
+| **Forno de Sinterização** | Processamento térmico de materiais sintéticos. | Controle de ciclos e temperatura de operação. |
+| **Forno para Cerâmica** | Acabamento de próteses cerâmicas. | Restrito a profissionais autorizados. |
+| **Polimerizadora** | Polimerização de resinas e materiais odontológicos. | Requer manutenção preventiva regular. |
+| **Jateadora / Polidora** | Tratamento de superfície, acabamento e polimento. | Manutenção e higienização periódicas. |
+| **Autoclave** | Esterilização de instrumentos operacionais. | Controle de ciclos e revisões periódicas. |
+| **Aparelho de Raio-X** | Obtenção de imagens radiográficas. | Inspeção técnica e manutenção preventiva obrigatórias. |
+| **Compressor de Ar** | Fornecimento de ar comprimido aos consultórios. | Manutenção preventiva para evitar parada geral. |
+| **Computador CAD** | Planejamento digital de próteses e implantes. | Acesso restrito e backup dos projetos digitais. |
+
+<br>
 
 
 
