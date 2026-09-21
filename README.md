@@ -11,7 +11,7 @@
 > 🎓 **Integrantes do Grupo**
 > - **Letícia Valentim Reges** — RGM: `047369680`
 > - **Juan Arthur Franco** — RGM: `47232099`
-
+> - **Isadora Do Nascimento Takami - RGM: `47108932`
 ---
 
 ## 🏛️ 1. Caracterização da Organização
@@ -96,7 +96,84 @@
 | **Computador CAD** | Planejamento digital de próteses e implantes. | Acesso restrito e backup dos projetos digitais. |
 
 <br>
-
+### Estrutura da Entidade `EQUIPAMENTO` 🗂
+| Atributo | Descrição | Restrição / Regra |
+| :--- | :--- | :--- |
+| `id_equipamento` | Identificador único do equipamento | Chave Primária 🔑
+(PK), Obrigatório |
+| `nome_equipamento` | Nome comercial do aparelho | Obrigatório |
+| `tipo_equipamento` | Categoria/tipo do equipamento | Obrigatório |
+| `numero_serie` | Número de série do fabricante | Único |
+| `data_aquisicao` | Data de compra do ativo | Obrigatório |
+| `status` | Situação operacional do ativo | *Disponível, Manutenção, Inativo,
+Em uso* |
+| `localizacao` | Consultório ou sala onde está instalado | Informado
+obrigatoriamente |
+| `responsavel` | Funcionário responsável pelo ativo | Cadastrado previamente |
+| `ultima_manutencao` | Data da última intervenção técnica | Atualizado
+automaticamente |
+| `proxima_manutencao` | Data prevista para próxima revisão | Controle
+Preventivo |
+---
+## 6. Modelagem Conceitual 📐
+### Entidades Mapeadas 📦
+* **`EQUIPAMENTO`**: Representa os ativos e aparelhos da clínica.
+* **`MANUTENÇÃO`**: Registra as intervenções técnicas e histórico de reparos.
+* **`ESTOQUE`**: Controla insumos, peças e componentes do setor técnico.
+* **`PRODUÇÃO`**: Registra os itens/próteses fabricados internamente.
+* **`CONSULTÓRIO`**: Ambientes físicos onde ficam alocados os equipamentos.
+* **`FUNCIONÁRIO`**: Colaboradores envolvidos no uso, manutenção e gestão.
+### Relacionamentos e Cardinalidades 🔗
+* **Consultório — Equipamento `(1:N)`:** Um consultório pode possuir vários
+equipamentos; cada equipamento está instalado em um único consultório.
+* **Equipamento — Manutenção `(1:N)`:** Um equipamento pode passar por várias
+manutenções; cada manutenção pertence a um equipamento.
+* **Funcionário — Manutenção `(1:N)`:** Um funcionário pode executar/registrar
+várias manutenções; cada registro tem um responsável.
+* **Funcionário — Equipamento `(1:N)`:** Um funcionário pode responder por
+múltiplos equipamentos.
+* **Estoque — Produção `(N:N)`:** Uma ordem de produção consome múltiplos itens
+do estoque; cada item do estoque atende a várias produções. *(Nota: Na modelagem
+lógica, este relacionamento será convertido na entidade associativa
+`ITEM_PRODUÇÃO`)*.
+---
+## 8. Justificativa Técnica 🛠
+> A modelagem conceitual foi estruturada especificamente para responder às
+demandas operacionais da **Odontologia Sasaki**. A entidade **`EQUIPAMENTO`**
+assume o papel central, organizando dados que antes ficavam dispersos.
+>
+> A criação da entidade **`MANUTENÇÃO`** de forma independente permite o
+registro de um histórico ilimitado de intervenções sem poluir a tabela de
+equipamentos. O desacoplamento de **`CONSULTÓRIO`** e **`FUNCIONÁRIO`** elimina
+duplicidades de cadastro, enquanto as entidades **`ESTOQUE`** e **`PRODUÇÃO`**
+garantem rastreabilidade aos insumos utilizados na fabricação de peças 3D e
+próteses.
+---
+## 9. Uso de Inteligência Artificial 🤖
+A Inteligência Artificial foi utilizada estritamente como **ferramenta de
+apoio** para organização, estruturação de ideias, revisão e padronização do
+código. Todas as decisões técnicas e validações do negócio foram efetuadas pelo
+grupo.
+### 9.1 ChatGPT
+* **Etapa:** Organização das ideias, levantamento inicial dos processos de
+negócio, requisitos e estrutura do dicionário de dados.
+* **Prompts:** *"Crie uma clínica com o nome Odontologia Sasaki e desenvolva
+informações sobre seu contexto, porte e problemas no controle de
+equipamentos..."*
+* **Avaliação Crítica:** As sugestões genéricas foram revisadas e adaptadas à
+realidade operacional da Odontologia Sasaki.
+### 9.2 Claude
+* **Etapa:** Harmonização do código, otimização da estrutura em Markdown/HTML e
+padronização para exibição no GitHub.
+* **Prompts:** Pedidos para analisar, harmonizar e estilizar o documento em tons
+elegantes de dourado e branco.
+* **Avaliação Crítica:** As alterações estéticas foram aprovadas preservando
+100% do conteúdo conceitual e lógico desenvolvido.
+---
+<div align="center">
+<span style="color: #c5a059; font-weight: bold;">Odontologia Sasaki ©
+2026</span> • *Documentação do Projeto de Banco de Dados*
+</div>
 
 
 </div>
