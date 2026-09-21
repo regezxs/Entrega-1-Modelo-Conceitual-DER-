@@ -21,7 +21,7 @@
 | **Nome e Natureza** | **Odontologia Sasaki**, uma clínica odontológica privada de médio porte, com fins lucrativos. |
 | **Contexto e Porte** | ~20 funcionários (dentistas, auxiliares, técnicos, recepcionistas, manutenção). ~500 atendimentos/mês. Possui setor de produção própria (implantes, aparelhos ortodônticos, impressão 3D) e parque tecnológico distribuído. |
 | **Problemas Identificados** | Informações descentralizadas em planilhas e anotações. Dificuldade no acompanhamento da localização, situação operacional, histórico de manutenção e estoque de peças/insumos. |
-| **Justificativa** | O alto volume de equipamentos e processos fabris internos torna a clínica o cenário ideal para estruturação de um banco de dados relacional. |
+| **Justificativa** | O alto volume de equipamentos e processos internos tornando a clínica o cenário ideal para estruturação de um banco de dados relacional. |
 
 ### 📍 Evidências da Organização
 * **Endereço:** R. Jardim Tamoio, 1089 - Conj. Res. José Bonifácio, São Paulo - SP, 08255-010
@@ -96,6 +96,7 @@
 | **Computador CAD** | Planejamento digital de próteses e implantes. | Acesso restrito e backup dos projetos digitais. |
 
 <br>
+
 ### Estrutura da Entidade `EQUIPAMENTO` 🗂
 | Atributo | Descrição | Restrição / Regra |
 | :--- | :--- | :--- |
@@ -115,6 +116,7 @@ automaticamente |
 | `proxima_manutencao` | Data prevista para próxima revisão | Controle
 Preventivo |
 ---
+
 ## 6. Modelagem Conceitual 📐
 ### Entidades Mapeadas 📦
 * **`EQUIPAMENTO`**: Representa os ativos e aparelhos da clínica.
@@ -123,6 +125,7 @@ Preventivo |
 * **`PRODUÇÃO`**: Registra os itens/próteses fabricados internamente.
 * **`CONSULTÓRIO`**: Ambientes físicos onde ficam alocados os equipamentos.
 * **`FUNCIONÁRIO`**: Colaboradores envolvidos no uso, manutenção e gestão.
+
 ### Relacionamentos e Cardinalidades 🔗
 * **Consultório — Equipamento `(1:N)`:** Um consultório pode possuir vários
 equipamentos; cada equipamento está instalado em um único consultório.
