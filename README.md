@@ -11,7 +11,7 @@
 > 🎓 **Integrantes do Grupo**
 > - **Letícia Valentim Reges** — RGM: `047369680`
 > - **Juan Arthur Franco** — RGM: `47232099`
-> - **Isadora Do Nascimento Takami - RGM: `47108932`
+> - **Isadora Do Nascimento Takami** - RGM: `47108932`
 ---
 
 ## 🏛️ 1. Caracterização da Organização
