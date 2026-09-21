@@ -149,3 +149,39 @@ As cardinalidades refletem fielmente o funcionamento cotidiano da clínica, perm
 
 ## 9. Uso de Inteligência Artificial
 
+Durante o desenvolvimento do projeto, o grupo utilizou ferramentas de Inteligência Artificial como **apoio às atividades**, principalmente para organização de ideias, revisão, aprimoramento do material e organização do código. A IA não foi utilizada para substituir a análise e as decisões do grupo. As respostas geradas foram analisadas, adaptadas e, quando necessário, corrigidas pelos integrantes.
+
+### 9.1 ChatGPT
+
+| Item | Registro |
+|------|----------|
+| **Ferramenta e etapa** | **ChatGPT** — utilizado durante a organização das ideias, definição da estrutura da organização, levantamento dos processos de negócio, requisitos do sistema, regras de negócio e organização preliminar das entidades e atributos do banco de dados. |
+| **Motivação** | Utilizar a IA como apoio para organizar as informações levantadas pelo grupo, sugerir possibilidades de estruturação e auxiliar na identificação de elementos que poderiam fazer parte do sistema. |
+| **Prompt(s) utilizados** | "Crie uma clínica com o nome Odontologia Sasaki e desenvolva informações sobre seu contexto, porte, problemas e necessidades relacionadas ao controle de equipamentos." Também foram utilizados prompts para estruturar processos, requisitos, regras de negócio, dicionário de dados e entidades do sistema. |
+| **Resposta recebida** | A IA apresentou sugestões de processos, equipamentos, requisitos, regras de negócio, entidades, atributos e relacionamentos que poderiam ser utilizados como ponto de partida para o projeto. |
+| **Fontes consultadas e verificadas** | As sugestões foram analisadas pelo grupo e comparadas com as informações definidas para a organização e com os conhecimentos obtidos durante o desenvolvimento do projeto. Informações técnicas sobre equipamentos odontológicos foram pesquisadas e verificadas antes de serem utilizadas. |
+| **Trechos rejeitados ou corrigidos** | Algumas sugestões foram modificadas ou descartadas por serem muito genéricas, não representarem a realidade definida para a Odontologia Sasaki ou adicionarem funcionalidades que não faziam parte do objetivo principal do projeto. |
+| **Justificativa da escolha final** | O grupo manteve apenas as sugestões consideradas coerentes com o problema identificado. As decisões finais sobre processos, entidades, atributos e regras de negócio foram discutidas e definidas pelos integrantes do grupo. |
+| **Reflexão crítica** | A IA pode apresentar respostas genéricas, informações incompletas ou sugestões que não correspondem exatamente à realidade da organização. Por isso, o grupo utilizou a ferramenta como apoio e não como fonte única de decisão. As respostas foram avaliadas criticamente antes de serem incorporadas ao projeto. |
+
+### 9.2 Claude
+
+| Item | Registro |
+|------|----------|
+| **Ferramenta e etapa** | **Claude** — utilizado na etapa de organização e harmonização do código desenvolvido para o projeto e preparado para publicação no GitHub. |
+| **Motivação** | Auxiliar na padronização e organização do código, buscando melhorar sua estrutura, legibilidade e consistência antes da disponibilização no repositório do grupo. |
+| **Prompt(s) utilizados** | Foram realizados pedidos para analisar e harmonizar a estrutura do código, mantendo sua funcionalidade e deixando sua organização mais consistente para utilização no GitHub. |
+| **Resposta recebida** | O Claude apresentou sugestões de organização, padronização e ajustes no código. |
+| **Fontes consultadas e verificadas** | O código sugerido foi analisado pelos integrantes e comparado com a versão desenvolvida pelo grupo antes da utilização. |
+| **Trechos rejeitados ou corrigidos** | Alterações que poderiam modificar a lógica ou o funcionamento esperado do projeto foram revisadas e, quando necessário, descartadas ou modificadas pelo grupo. |
+| **Justificativa da escolha final** | Foram aplicadas somente as alterações consideradas adequadas para melhorar a organização e a apresentação do código, preservando a lógica desenvolvida pelos integrantes. |
+| **Reflexão crítica** | O uso do Claude foi considerado uma ferramenta de apoio à organização do código. A ferramenta não substituiu o conhecimento dos integrantes sobre o funcionamento do projeto, e todas as alterações foram revisadas antes de serem utilizadas no GitHub. |
+
+### 9.3 Reflexão Geral sobre o Uso de IA
+
+O grupo entende a Inteligência Artificial como uma **ferramenta de apoio ao desenvolvimento**, e não como substituta do conhecimento ou das decisões dos integrantes.
+
+A IA foi utilizada para auxiliar na organização de informações, geração de possibilidades, revisão, melhoria do material e harmonização do código. As decisões finais foram tomadas pelo próprio grupo, considerando os objetivos do projeto e as necessidades identificadas para a **Odontologia Sasaki**.
+
+Dessa forma, a utilização da IA contribuiu para o desenvolvimento do trabalho sem substituir a participação, análise crítica e aprendizado dos estudantes.
+
