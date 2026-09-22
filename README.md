@@ -158,7 +158,7 @@ O modelo também pode ser visualizado diretamente no **BRModelo Web**:
 ## Dicionário de Dados em HTML
   <p align="center">
 
-**[Visualizar dicionário de dados em HTML](file:///c%3A/Users/arace/OneDrive/Faculdade%20-%20ADS/Modelagem%20de%20banco%20de%20dados/Dicion%C3%A1rio.html)**
+**[Visualizar dicionário de dados em HTML](http://127.0.0.1:5500/Dicion%C3%A1rio.html)**
 
 </p>
 
