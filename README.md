@@ -12,6 +12,7 @@
 > - **Letícia Valentim Reges** — RGM: `047369680`
 > - **Juan Arthur Franco** — RGM: `47232099`
 > - **Isadora Do Nascimento Takami** - RGM: `47108932`
+> - **Pedro Cândido Pyramides Pinheiro** - RGM: `04669634`
 ---
 
 ##  1. Caracterização da Organização
