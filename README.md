@@ -161,7 +161,7 @@ O modelo também pode ser visualizado diretamente no **BRModelo Web**:
 **[Visualizar dicionário de dados em HTML](http://127.0.0.1:5500/Dicion%C3%A1rio.html)**
 
 </p>
----
+
 ## 8. Justificativa Técnica 
 > A modelagem conceitual foi estruturada especificamente para responder às
 demandas operacionais da **Odontologia Sasaki**. A entidade **`EQUIPAMENTO`**
@@ -196,7 +196,7 @@ elegantes de dourado e branco.
 
 <div align="center">
 <span style="color:#c5a059; font-weight: bold;">Odontologia Sasaki ©
-2026</span> • *Documentação do Projeto de Banco de Dados*
+2026</span> • Documentação do Projeto de Banco de Dados
 </div>
 
 
