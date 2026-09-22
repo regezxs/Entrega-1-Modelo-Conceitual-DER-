@@ -102,10 +102,10 @@
 
 <br>
 
-### Estrutura da Entidade `EQUIPAMENTO` 🗂
+### Estrutura da Entidade `EQUIPAMENTO` 
 | Atributo | Descrição | Restrição / Regra |
 | :--- | :--- | :--- |
-| `id_equipamento` | Identificador único do equipamento | Chave Primária 🔑(PK), Obrigatório |
+| `id_equipamento` | Identificador único do equipamento | Chave Primária (PK), Obrigatório |
 | `nome_equipamento` | Nome comercial do aparelho | Obrigatório |
 | `tipo_equipamento` | Categoria/tipo do equipamento | Obrigatório |
 | `numero_serie` | Número de série do fabricante | Único |
@@ -117,8 +117,8 @@
 | `proxima_manutencao` | Data prevista para próxima revisão | Controle Preventivo |
 ---
 
-## 6. Modelagem Conceitual 📐
-### Entidades Mapeadas 📦
+## 6. Modelagem Conceitual 
+### Entidades Mapeadas 
 * **`EQUIPAMENTO`**: Representa os ativos e aparelhos da clínica.
 * **`MANUTENÇÃO`**: Registra as intervenções técnicas e histórico de reparos.
 * **`ESTOQUE`**: Controla insumos, peças e componentes do setor técnico.
@@ -126,7 +126,7 @@
 * **`CONSULTÓRIO`**: Ambientes físicos onde ficam alocados os equipamentos.
 * **`FUNCIONÁRIO`**: Colaboradores envolvidos no uso, manutenção e gestão.
 
-### Relacionamentos e Cardinalidades 🔗
+### Relacionamentos e Cardinalidades 
 * **Consultório — Equipamento `(1:N)`:** Um consultório pode possuir vários
 equipamentos; cada equipamento está instalado em um único consultório.
 * **Equipamento — Manutenção `(1:N)`:** Um equipamento pode passar por várias
@@ -140,7 +140,7 @@ do estoque; cada item do estoque atende a várias produções. *(Nota: Na modela
 lógica, este relacionamento será convertido na entidade associativa
 `ITEM_PRODUÇÃO`)*.
 ---
-## 8. Justificativa Técnica 🛠
+## 8. Justificativa Técnica 
 > A modelagem conceitual foi estruturada especificamente para responder às
 demandas operacionais da **Odontologia Sasaki**. A entidade **`EQUIPAMENTO`**
 assume o papel central, organizando dados que antes ficavam dispersos.
@@ -152,7 +152,7 @@ duplicidades de cadastro, enquanto as entidades **`ESTOQUE`** e **`PRODUÇÃO`**
 garantem rastreabilidade aos insumos utilizados na fabricação de peças 3D e
 próteses.
 ---
-## 9. Uso de Inteligência Artificial 🤖
+## 9. Uso de Inteligência Artificial 
 A Inteligência Artificial foi utilizada estritamente como **ferramenta de
 apoio** para organização, estruturação de ideias, revisão e padronização do
 código. Todas as decisões técnicas e validações do negócio foram efetuadas pelo
