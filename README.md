@@ -8,13 +8,13 @@
 
 <br>
 
-> 🎓 **Integrantes do Grupo**
+>  **Integrantes do Grupo**
 > - **Letícia Valentim Reges** — RGM: `047369680`
 > - **Juan Arthur Franco** — RGM: `47232099`
 > - **Isadora Do Nascimento Takami** - RGM: `47108932`
 ---
 
-## 🏛️ 1. Caracterização da Organização
+##  1. Caracterização da Organização
 
 | Campo | Detalhes |
 | :--- | :--- |
@@ -23,19 +23,18 @@
 | **Problemas Identificados** | Informações descentralizadas em planilhas e anotações. Dificuldade no acompanhamento da localização, situação operacional, histórico de manutenção e estoque de peças/insumos. |
 | **Justificativa** | O alto volume de equipamentos e processos internos tornando a clínica o cenário ideal para estruturação de um banco de dados relacional. |
 
-### 📍 Evidências da Organização
+###  Evidências da Organização
 * **Endereço:** R. Jardim Tamoio, 1089 - Conj. Res. José Bonifácio, São Paulo - SP, 08255-010
 * **Google Maps:** [Acessar localização no Google Maps](https://maps.app.goo.gl/ALuZBqSGNaq6kBxy9)
 * **Contato:** `Luduque@hotmail.com` | `+55 11 99001-2968`
 <p align="center">
   <img src="IMG_0183.JPG" alt="Porta da Clínica" width="300">
+  <img src="image (1).png" alt="Aluna Letícia com o Dr. Marcelo que mostrou os pontos de dores da clínica" width="300">
 </p>
-<p align="center">
-  <img src="hhhhhhhhh" alt="Aluna Letícia com o Dr. Marcelo que mostrou os pontos de dores da clínica" width="300">
-</p>
+
 ---
 
-## 🔄 2. Processos de Negócio
+##  2. Processos de Negócio
 
 1. **Cadastro e Controle de Equipamentos:** Registro individual, localização, responsável e situação atual.
 2. **Controle de Manutenção:** Registro de manutenções preventivas e corretivas, histórico de falhas e serviços executados.
@@ -45,9 +44,9 @@
 
 ---
 
-## 🎯 3. Requisitos do Sistema
+##  3. Requisitos do Sistema
 
-### ⚙️ 3.1 Requisitos Funcionais
+###  3.1 Requisitos Funcionais
 - [x] Cadastrar, alterar e consultar equipamentos.
 - [x] Registrar a localização física e o funcionário responsável.
 - [x] Registrar manutenções preventivas e corretivas.
@@ -57,7 +56,7 @@
 - [x] Informar status em tempo real *(Disponível, Em Manutenção, Inativo, Em uso)*.
 - [x] Mapear o inventário individual por consultório.
 
-### 🛡️ 3.2 Requisitos Não Funcionais
+###  3.2 Requisitos Não Funcionais
 * **Segurança:** Autenticação obrigatória para acesso às funcionalidades.
 * **Usabilidade:** Interface intuitiva e de fácil operação no dia a dia.
 * **Desempenho:** Respostas e consultas otimizadas.
@@ -65,9 +64,9 @@
 * **Integridade:** Consistência nos dados, evitando inconsistências e duplicidades.
 
 ---
-## 📜 4. Regras de Negócio
+##  4. Regras de Negócio
 
-### 📋 Regras Operacionais
+###  Regras Operacionais
 * **RN01:** Todo equipamento deve obrigatoriamente ter cadastro no sistema.
 * **RN02:** Todo equipamento deve estar associado a um consultório ou localização física.
 * **RN03:** Toda manutenção executada deve ser vinculada ao histórico do equipamento.
@@ -75,14 +74,14 @@
 * **RN05:** Toda saída de peças/materiais do estoque exige registro imediato.
 * **RN06:** Qualquer lote de produção deve gerar uma ordem correspondente no sistema.
 
-### 💡 Restrições Organizacionais
+###  Restrições Organizacionais
 > A atualização rigorosa do sistema previne o uso de equipamentos defeituosos, reduzindo paralisações nos atendimentos. O histórico centralizado permite acompanhar a vida útil dos aparelhos, planejar substituições preventivas e controlar custos operacionais.
 
 ---
 
-## 📚 5. Dicionário de Dados Conceitual (Preliminar)
+##  5. Dicionário de Dados Conceitual (Preliminar)
 
-### 🩺 Mapeamento do Parque Tecnológico (Equipamentos)
+###  Mapeamento do Parque Tecnológico (Equipamentos)
 
 | Aparelho / Equipamento | Descrição | Regra de Negócio Associada |
 | :--- | :--- | :--- |
@@ -105,21 +104,16 @@
 ### Estrutura da Entidade `EQUIPAMENTO` 🗂
 | Atributo | Descrição | Restrição / Regra |
 | :--- | :--- | :--- |
-| `id_equipamento` | Identificador único do equipamento | Chave Primária 🔑
-(PK), Obrigatório |
+| `id_equipamento` | Identificador único do equipamento | Chave Primária 🔑(PK), Obrigatório |
 | `nome_equipamento` | Nome comercial do aparelho | Obrigatório |
 | `tipo_equipamento` | Categoria/tipo do equipamento | Obrigatório |
 | `numero_serie` | Número de série do fabricante | Único |
 | `data_aquisicao` | Data de compra do ativo | Obrigatório |
-| `status` | Situação operacional do ativo | *Disponível, Manutenção, Inativo,
-Em uso* |
-| `localizacao` | Consultório ou sala onde está instalado | Informado
-obrigatoriamente |
+| `status` | Situação operacional do ativo | *Disponível, Manutenção, Inativo,Em uso* |
+| `localizacao` | Consultório ou sala onde está instalado | Informado obrigatoriamente |
 | `responsavel` | Funcionário responsável pelo ativo | Cadastrado previamente |
-| `ultima_manutencao` | Data da última intervenção técnica | Atualizado
-automaticamente |
-| `proxima_manutencao` | Data prevista para próxima revisão | Controle
-Preventivo |
+| `ultima_manutencao` | Data da última intervenção técnica | Atualizado automaticamente |
+| `proxima_manutencao` | Data prevista para próxima revisão | Controle Preventivo |
 ---
 
 ## 6. Modelagem Conceitual 📐
@@ -165,9 +159,7 @@ grupo.
 ### 9.1 ChatGPT
 * **Etapa:** Organização das ideias, levantamento inicial dos processos de
 negócio, requisitos e estrutura do dicionário de dados.
-* **Prompts:** *"Crie uma clínica com o nome Odontologia Sasaki e desenvolva
-informações sobre seu contexto, porte e problemas no controle de
-equipamentos..."*
+* **Prompts:** *"Com base no pdf, organize os equipamentos e crie nomes para serem identificados no cód"*
 * **Avaliação Crítica:** As sugestões genéricas foram revisadas e adaptadas à
 realidade operacional da Odontologia Sasaki.
 ### 9.2 Claude
@@ -178,8 +170,9 @@ elegantes de dourado e branco.
 * **Avaliação Crítica:** As alterações estéticas foram aprovadas preservando
 100% do conteúdo conceitual e lógico desenvolvido.
 ---
+
 <div align="center">
-<span style="color: #c5a059; font-weight: bold;">Odontologia Sasaki ©
+<span style="color:#c5a059; font-weight: bold;">Odontologia Sasaki ©
 2026</span> • *Documentação do Projeto de Banco de Dados*
 </div>
 
