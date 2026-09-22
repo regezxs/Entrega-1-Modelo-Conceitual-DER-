@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dicionário de Dados — Odontologia Sasaki</title>
+<style>
+  :root {
+    --azul-escuro: #0d2b4e;
+    --azul: #14497a;
+    --azul-claro: #2f7bc4;
+    --laranja: #f2994a;
+    --cinza-fundo: #f4f6fa;
+    --cinza-borda: #dbe2ec;
+    --texto: #1c2733;
+    --texto-suave: #55627a;
+    --branco: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--cinza-fundo);
+    color: var(--texto);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  header {
+    background: linear-gradient(120deg, var(--azul-escuro), var(--azul));
+    color: var(--branco);
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  header p {
+    margin: 4px 0;
+    color: #d6e6fb;
+    font-size: 0.95rem;
+  }
+  header .tag {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--laranja);
+    color: #3a1e00;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  nav.toc {
+    background: var(--branco);
+    border: 1px solid var(--cinza-borda);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--azul);
+    margin: 0 0 10px;
+  }
+  nav.toc ul {
+    columns: 2;
+    -webkit-columns: 2;
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.92rem;
+  }
+  nav.toc a {
+    color: var(--texto-suave);
+    text-decoration: none;
+  }
+  nav.toc a:hover { color: var(--azul-claro); text-decoration: underline; }
+
+  section.entidade {
+    background: var(--branco);
+    border: 1px solid var(--cinza-borda);
+    border-radius: 14px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    scroll-margin-top: 16px;
+  }
+  .entidade-header {
+    background: var(--cinza-fundo);
+    border-bottom: 1px solid var(--cinza-borda);
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .entidade-header .badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: var(--azul);
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .entidade-header h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--azul-escuro);
+    letter-spacing: 0.02em;
+  }
+  .entidade-header .descricao {
+    margin: 2px 0 0;
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    width: 100%;
+  }
+  .entidade-body { padding: 18px 22px 22px; }
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    min-width: 480px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--cinza-borda);
+  }
+  th {
+    background: #eef3fa;
+    color: var(--azul-escuro);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  tr:last-child td { border-bottom: none; }
+  td code, .attr-code {
+    background: #eef3fa;
+    color: var(--azul);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.85em;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .pill.pk { background: #fdecd8; color: #9a5b0c; }
+  .pill.fk { background: #e3edfb; color: var(--azul); }
+  .pill.obrig { background: #e7f5ea; color: #2c7a3d; }
+  .pill.opc { background: #f0f1f4; color: var(--texto-suave); }
+  .status-list {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
+  .relacionamentos {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--cinza-borda);
+  }
+  .relacionamentos h4 {
+    margin: 0 0 8px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--azul);
+  }
+  .relacionamentos ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    color: var(--texto);
+  }
+  .nota-associativa {
+    margin-top: 14px;
+    background: #fff6ea;
+    border: 1px solid #f5d9ab;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #7a4a0a;
+  }
+  footer {
+    text-align: center;
+    padding: 24px 20px 40px;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+  }
+  @media (max-width: 600px) {
+    nav.toc ul { columns: 1; -webkit-columns: 1; }
+    header h1 { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Dicionário de Dados</h1>
+  <p>Sistema de Gestão para a Odontologia Sasaki</p>
+  <p>Entrega 1 — Modelo Conceitual (DER)</p>
+  <span class="tag">Modelagem de Banco de Dados · UniCid</span>
+</header>
+
+<main>
+
+  <nav class="toc" aria-label="Sumário">
+    <h2>Entidades</h2>
+    <ul>
+      <li><a href="#consultorio">1. Consultório</a></li>
+      <li><a href="#equipamento">2. Equipamento</a></li>
+      <li><a href="#funcionario">3. Funcionário</a></li>
+      <li><a href="#manutencao">4. Manutenção</a></li>
+      <li><a href="#estoque">5. Estoque</a></li>
+      <li><a href="#producao">6. Produção</a></li>
+      <li><a href="#item_producao">7. Item_Produção</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONSULTÓRIO -->
+  <section class="entidade" id="consultorio">
+    <div class="entidade-header">
+      <div class="badge">1</div>
+      <h3>CONSULTÓRIO</h3>
+      <p class="descricao">Representa os ambientes físicos onde os equipamentos da clínica estão instalados.</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_consultorio</span></td><td>INT</td><td><span class="pill pk">PK</span></td></tr>
+            <tr><td><span class="attr-code">nome_consultorio</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">numero_sala</span></td><td>VARCHAR</td><td><span class="pill obrig">Único</span></td></tr>
+            <tr><td><span class="attr-code">andar</span></td><td>INT</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">status</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="status-list"><strong>Status possíveis:</strong> Disponível · Ocupado · Manutenção · Inativo</ul>
+      <div class="relacionamentos">
+        <h4>Relacionamentos</h4>
+        <ul><li>Consultório → Equipamento (1:N) — um consultório pode possuir vários equipamentos; cada equipamento pertence a um único consultório.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPAMENTO -->
+  <section class="entidade" id="equipamento">
+    <div class="entidade-header">
+      <div class="badge">2</div>
+      <h3>EQUIPAMENTO</h3>
+      <p class="descricao">Representa os aparelhos e ativos utilizados pela clínica (entidade central do modelo).</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_equipamento</span></td><td>INT</td><td><span class="pill pk">PK</span></td></tr>
+            <tr><td><span class="attr-code">nome_equipamento</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">tipo_equipamento</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">numero_serie</span></td><td>VARCHAR</td><td><span class="pill obrig">Único</span></td></tr>
+            <tr><td><span class="attr-code">data_aquisicao</span></td><td>DATE</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">status</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">id_consultorio</span></td><td>INT</td><td><span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">id_funcionario</span></td><td>INT</td><td><span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">ultima_manutencao</span></td><td>DATE</td><td><span class="pill opc">Automático</span></td></tr>
+            <tr><td><span class="attr-code">proxima_manutencao</span></td><td>DATE</td><td><span class="pill opc">Controle preventivo</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="status-list"><strong>Status possíveis:</strong> Disponível · Manutenção · Inativo · Em uso</ul>
+      <div class="relacionamentos">
+        <h4>Relacionamentos</h4>
+        <ul>
+          <li>Equipamento → Manutenção (1:N) — um equipamento pode passar por várias manutenções.</li>
+          <li>Funcionário → Equipamento (1:N) — um funcionário pode ser responsável por múltiplos equipamentos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNCIONÁRIO -->
+  <section class="entidade" id="funcionario">
+    <div class="entidade-header">
+      <div class="badge">3</div>
+      <h3>FUNCIONÁRIO</h3>
+      <p class="descricao">Representa os colaboradores envolvidos no uso, manutenção e gestão dos recursos da clínica.</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_funcionario</span></td><td>INT</td><td><span class="pill pk">PK</span></td></tr>
+            <tr><td><span class="attr-code">nome</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">cpf</span></td><td>VARCHAR</td><td><span class="pill obrig">Único</span></td></tr>
+            <tr><td><span class="attr-code">cargo</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">telefone</span></td><td>VARCHAR</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">email</span></td><td>VARCHAR</td><td><span class="pill obrig">Único</span></td></tr>
+            <tr><td><span class="attr-code">data_admissao</span></td><td>DATE</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">status</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="relacionamentos">
+        <h4>Relacionamentos</h4>
+        <ul>
+          <li>Funcionário → Manutenção (1:N) — um funcionário pode executar/registrar várias manutenções.</li>
+          <li>Funcionário → Equipamento (1:N) — um funcionário pode responder por múltiplos equipamentos.</li>
+          <li>Funcionário → Produção (1:N) — um funcionário pode ser responsável por várias produções.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANUTENÇÃO -->
+  <section class="entidade" id="manutencao">
+    <div class="entidade-header">
+      <div class="badge">4</div>
+      <h3>MANUTENÇÃO</h3>
+      <p class="descricao">Registra as intervenções técnicas realizadas nos equipamentos.</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_manutencao</span></td><td>INT</td><td><span class="pill pk">PK</span></td></tr>
+            <tr><td><span class="attr-code">id_equipamento</span></td><td>INT</td><td><span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">id_funcionario</span></td><td>INT</td><td><span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">tipo_manutencao</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">data_manutencao</span></td><td>DATE</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">descricao</span></td><td>TEXT</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">custo</span></td><td>DECIMAL</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">observacao</span></td><td>TEXT</td><td><span class="pill opc">Opcional</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="status-list"><strong>Tipos de manutenção:</strong> Preventiva · Corretiva</ul>
+      <div class="relacionamentos">
+        <h4>Relacionamentos</h4>
+        <ul><li>Cada manutenção está vinculada a exatamente um equipamento e a um funcionário responsável.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTOQUE -->
+  <section class="entidade" id="estoque">
+    <div class="entidade-header">
+      <div class="badge">5</div>
+      <h3>ESTOQUE</h3>
+      <p class="descricao">Responsável pelo controle dos insumos, peças, componentes e materiais utilizados pela clínica.</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_item</span></td><td>INT</td><td><span class="pill pk">PK</span></td></tr>
+            <tr><td><span class="attr-code">nome_item</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">tipo_item</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">descricao</span></td><td>TEXT</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">quantidade</span></td><td>INT</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">unidade_medida</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">estoque_minimo</span></td><td>INT</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">data_validade</span></td><td>DATE</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">localizacao</span></td><td>VARCHAR</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">status</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="status-list"><strong>Status possíveis:</strong> Disponível · Baixo · Esgotado · Inativo</ul>
+      <div class="relacionamentos">
+        <h4>Relacionamentos</h4>
+        <ul><li>Estoque ↔ Produção (N:N) — resolvido pela entidade associativa <span class="attr-code">ITEM_PRODUÇÃO</span>.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUÇÃO -->
+  <section class="entidade" id="producao">
+    <div class="entidade-header">
+      <div class="badge">6</div>
+      <h3>PRODUÇÃO</h3>
+      <p class="descricao">Representa os produtos, próteses ou itens fabricados internamente pela clínica.</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_producao</span></td><td>INT</td><td><span class="pill pk">PK</span></td></tr>
+            <tr><td><span class="attr-code">descricao</span></td><td>TEXT</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">tipo_producao</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">data_inicio</span></td><td>DATE</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">data_conclusao</span></td><td>DATE</td><td><span class="pill opc">Opcional</span></td></tr>
+            <tr><td><span class="attr-code">quantidade</span></td><td>INT</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">status</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">id_funcionario</span></td><td>INT</td><td><span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">observacao</span></td><td>TEXT</td><td><span class="pill opc">Opcional</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="status-list"><strong>Status possíveis:</strong> Em produção · Concluída · Cancelada</ul>
+      <div class="relacionamentos">
+        <h4>Relacionamentos</h4>
+        <ul><li>Estoque ↔ Produção (N:N) — uma ordem de produção consome múltiplos itens do estoque.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM_PRODUÇÃO -->
+  <section class="entidade" id="item_producao">
+    <div class="entidade-header">
+      <div class="badge">7</div>
+      <h3>ITEM_PRODUÇÃO</h3>
+      <p class="descricao">Entidade associativa que resolve o relacionamento N:N entre Estoque e Produção.</p>
+    </div>
+    <div class="entidade-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Atributo</th><th>Tipo</th><th>Restrição</th></tr></thead>
+          <tbody>
+            <tr><td><span class="attr-code">id_item</span></td><td>INT</td><td><span class="pill pk">PK</span> <span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">id_producao</span></td><td>INT</td><td><span class="pill pk">PK</span> <span class="pill fk">FK</span></td></tr>
+            <tr><td><span class="attr-code">quantidade_utilizada</span></td><td>INT</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+            <tr><td><span class="attr-code">unidade_medida</span></td><td>VARCHAR</td><td><span class="pill obrig">Obrigatório</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nota-associativa">
+        <strong>Chave primária composta:</strong> PK = (id_item, id_producao). Uma produção pode utilizar diversos itens do estoque, e um mesmo item pode ser utilizado em diversas produções — a quantidade utilizada é registrada individualmente para cada par item/produção.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Dicionário de Dados — Entrega 1 (Modelo Conceitual/DER) · Sistema de Gestão Odontologia Sasaki · UniCid
+</footer>
+
+</body>
+</html>
