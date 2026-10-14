@@ -28,6 +28,7 @@
 * **Endereço:** R. Jardim Tamoio, 1089 - Conj. Res. José Bonifácio, São Paulo - SP, 08255-010
 * **Google Maps:** [Acessar localização no Google Maps](https://maps.app.goo.gl/ALuZBqSGNaq6kBxy9)
 * **Contato:** `Luduque@hotmail.com` | `+55 11 99001-2968`
+**CRO:**
 <p align="center">
   <img src="IMG_0183.JPG" alt="Porta da Clínica" width="300">
   <img src="image (1).png" alt="Aluna Letícia com o Dr. Marcelo que mostrou os pontos de dores da clínica" width="300">
